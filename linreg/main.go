@@ -79,17 +79,17 @@ func main() {
 	qty.Mul(qt, y)
 
 	// initializing c to store constants
-	c := make([]float64, n)
+	b := make([]float64, n)
 
 	// using back-substitution calculating all constants
 	for i := n - 1; i >= 0; i-- {
-		c[i] = qty.At(i, 0)
+		b[i] = qty.At(i, 0)
 		for j := i + 1; j < n; j++ {
-			c[i] -= c[j] * r.At(i, j)
+			b[i] -= b[j] * r.At(i, j)
 		}
-		c[i] /= r.At(i, i)
+		b[i] /= r.At(i, i)
 	}
 
 	// printing the constants
-	fmt.Printf("Printing the calculated constants:\nb0: %.2f, b1: %.2f, b2: %.2f\n", c[0], c[1], c[2])
+	fmt.Printf("Printing the calculated constants:\nb0: %.2f, b1: %.2f, b2: %.2f\n", b[0], b[1], b[2])
 }
