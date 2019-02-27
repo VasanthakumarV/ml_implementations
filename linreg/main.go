@@ -78,7 +78,7 @@ func main() {
 	qty := new(mat.Dense)
 	qty.Mul(qt, y)
 
-	// initializing c to store constants
+	// initializing b to store constants
 	b := make([]float64, n)
 
 	// using back-substitution calculating all constants
